@@ -1,0 +1,16 @@
+# Auto Assign Reviewer by Issuer :
+# https://github.com/marketplace/actions/auto-assign-reviewer-by-issuer
+
+name: "Auto Assign"
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+      with:
+        config: '.github/reviewers.yml'
+        token: ${{ secrets.GITHUB_TOKEN }}
