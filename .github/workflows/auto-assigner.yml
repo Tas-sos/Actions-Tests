@@ -2,3 +2,12 @@
 
 NicolasLiampotis:
   - NicolasLiampotis
+
+NicolasLiampotis:
+  - Tas-sos
+
+Tas-sos:
+  - NicolasLiampotis
+
+Tas-sos:
+  - Tas-sos
