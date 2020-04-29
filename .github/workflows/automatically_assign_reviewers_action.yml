@@ -6,7 +6,7 @@ name: Automatically assign reviewers
 # events but only for the master branch
 on:
   pull_request:
-    branches: [ devel ]
+    branches: [ master, devel ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,6 +18,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    - name: Auto Assign Reviewer by Assignee
+      uses: shufo/auto-assign-reviewer-by-assignee@v1.1.0
+      with:
+       token: ${{ secrets.GITHUB_TOKEN }}
+
 
     - name: Review Request Action
       uses: kunihiko-t/review-request-action@v0.1.3
