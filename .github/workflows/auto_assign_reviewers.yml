@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Automatically assign reviewers
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  pull_request:
+    types: [opened]
+    branches: [ master, devel ]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: shufo/auto-assign-reviewer-by-issuer@v1.0.0
+      with:
+        config: '.github/reviewers.yml'
+        token: ${{ secrets.GITHUB_TOKEN }}
